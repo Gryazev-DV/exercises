@@ -5,14 +5,14 @@ abstract class Product
     protected $name;
     protected $price;
     protected $discount;
-    protected $delivery;
+    protected $delivery = 250;
 
-    public function __construct($name, $price, $discount, $delivery)
+    public function __construct($name, $price, $discount)
     {
         $this->name = $name;
         $this->price = $price;
         $this->discount = $discount;
-        $this->delivery = $delivery;
+        //$this->delivery = $delivery;
     }
 }
 
@@ -41,9 +41,9 @@ class Phone extends Product
     use DiscountPrice;
     use DeliveryPrice;
 
-    public function __construct($name, $price, $discount = 0, $delivery = 250)
+    public function __construct($name, $price, $discount = 0)
     {
-        parent::__construct($name, $price, $discount, $delivery);
+        parent::__construct($name, $price, $discount);
     }
 }
 
@@ -52,9 +52,9 @@ class Laptop extends Product
     use DiscountPrice;
     use DeliveryPrice;
 
-    public function __construct($name, $price, $discount = 10, $delivery = 250)
+    public function __construct($name, $price, $discount = 10)
     {
-        parent::__construct($name, $price, $discount, $delivery);
+        parent::__construct($name, $price, $discount);
     }
 }
 
@@ -65,9 +65,9 @@ class TV extends Product
 
     protected $weight;
 
-    public function __construct($name, $price, $weight, $discount = 10, $delivery = 250)
+    public function __construct($name, $price, $weight, $discount = 10)
     {
-        parent::__construct($name, $price, $discount, $delivery);
+        parent::__construct($name, $price, $discount);
         $this->weight = $weight;
     }
 }
